@@ -213,6 +213,30 @@ summary {
 }
 
 /* MY OWN STYLES */
+
+@font-face {
+    font-family: "playfair";
+    src: url("./fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url("./fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, strong {
+    font-family: "playfair", sans-serif;
+}
+
+p, span {
+    font-family: "roboto", sans-serif;
+}
+
+
 html {
 	background-color: white;
 	justify-content: center;
@@ -220,20 +244,18 @@ html {
 
 body {
 	height: 130vh;
-	max-width: 1100px;
 	margin: 0 auto;
-	padding: 0 5rem;
+	padding: 0 6rem;
 }
 
 header {
-    flex: 1;
+    
     background-color: white; /* White foreground */
-    display: flex;
     position: relative; /* Ensures it acts as a container for .diagonal */
     z-index: 2; /* Higher so it's above .diagonal */
 	justify-content: center;
 	align-items: center;
-    
+    padding-top: 2rem;
 }
 
 .diagonal {
@@ -245,60 +267,38 @@ header {
     left: 0;
     z-index: 1; 
     clip-path: polygon(0% 0%, 100% 0%, 100% 64%, 0% 100%);
-	transform: scale(1.3);
+	transform: scale(1.2);
 	flex-shrink: 0;
 }
 
 .about-me {
-    flex: 1;
-    background-color: white;
+    padding: 2rem 2rem 0 0;
+	background-color: white;
     z-index: 3; 
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-    position: relative; 
-	display: flex;
 	color: black;
-	margin-top: 1.5rem;
-}
-
-.name {
-	z-index: 5;
-	color: white;
-	position: absolute;
-	margin: 0;
-	bottom: 25px;
-	padding-left: 6rem;
-}
-
-.picture {
-	width: 400px;
-	height: 300px;
 	position: relative;
-	background-image: url(./imgs/kael4.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top;
-	transform: scaleY(1.1);
-	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+	min-width: 300px;
 }
 
-.description {
-	flex: 1;
-	padding: 15px;
-	text-align: center;
-}
+.about-me > img {
+	height: 320px;
+	min-width: 300px;
+	
+	margin-right: 2rem;
+	z-index: 5;
+	float: left;
+	margin-top: -3rem;
 
-.description > p {
-	text-align: justify;
 }
 
 .profile-btns button {
 	flex: 1;
 	all: unset; 
-	display: inline-block;
 	cursor: pointer; 
 	height: 30px;
 	width: 30px;
-	transition: transform 0.5s ease-out;
+	transition: transform 0.2s ease-in;
 }
 
 .profile-btns button:hover {
@@ -308,12 +308,9 @@ header {
 .profile-btns {
 	display: flex;
 	gap: 5px;
-	justify-content: end;
 	position: relative;
-}
-
-main {
-	flex: 5;
+	justify-content: end;
+	padding: 1rem 0 1rem 0;
 	
 }
 
@@ -341,7 +338,7 @@ main h2 {
                 2px -2px 5px rgba(0, 0, 0, 0.2),  /* Top-right */
                 -2px 2px 5px rgba(0, 0, 0, 0.2); /* Bottom-left */
 	cursor: pointer;
-	transition: transform 0.5s ease-in;
+	transition: transform 0.2s ease-in;
 }
 .wrapper > button:hover {
 	transform: scale(1.05);
@@ -361,7 +358,7 @@ main h2 {
 
 .proj-info {
 	padding: 10px;
-	text-align: justify;
+	
 	position: relative;
 }
 
@@ -373,48 +370,111 @@ main h2 {
 footer {
 	margin-top: 4rem;
 	background-color: #3A7CA5;
-	transform: scaleX(1.3);
+	transform: scaleX(1.2);
+	padding: 2rem 4rem;
 	min-height: 300px;
+	min-width: 100%;
+	display: flex;
 }
 
 
-
-.about-me {
-    display: flex;
-    flex-wrap: wrap;
- 
-    align-items: center;
+.contact {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: stretch;
 }
 
-/* Ensure .picture does not shrink */
-.picture {
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-    max-width: 100%;
-    background-color: lightgray; /* Just to check visibility */
+footer > img {
+	float: right;
+	display: inline;
+	min-width: 350px;
+	min-height: 300px;
+	z-index: 5;
 }
 
-/* Prevent .description from taking all the space */
-.description {
-    flex: 2;
-    min-width: 300px;
+.contact-btns button {
+	all: unset; 
+	cursor: pointer; 
+	height: 30px;
+	width: 30px;
+	transition: transform 0.2s ease-in;
 }
 
-/* RESPONSIVE: Stack elements when screen is smaller */
-@media (max-width: 768px) {
+.contact-btns button:hover {
+	transform: scale(1.1);
+}
+
+.contact > span > img {
+	filter: invert(1);
+}
+
+.contact > p,
+.contact > span {
+	font-size:small;
+}
+
+@media (min-width: 1001px) {
+	body {
+		padding: 0 6rem;
+		max-width: 1000px;
+	}
+}
+
+
+@media (max-width: 1000px) {
+	body {
+		padding: 0 4rem;
+	}
+}
+
+@media (max-width: 774px) {
 	body {
 		padding: 0 3rem;
 	}
+	footer {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		align-items: center;
+	}
+	.footer > img {
+		margin: -4rem;
+		flex: 2;
+		min-width: 300px;
+	}
+	.contact {
+		flex: 1;
+		padding: 2rem 2rem 0 2rem;
+	}
+}
 
-    .picture {
-        width: 100%; /* Make sure it stays visible */
-        min-height: 200px; /* Ensures it doesn't collapse */
-    }
+@media (max-width: 582px) {
+	.about-me > img {
+		float: none;
+		margin-right: 0 ;
+	}
+	.about-me {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		padding: 2rem;
+		text-align: justify;
+	}
+	.container {
+		flex-direction: column;
+		padding: 0;
+	}
+	body {
+		padding: 0 2rem;
+	}
 }
 
 @media (max-width: 500px) {
 	body {
 		padding: 0 1rem;
 	}
+
 }
